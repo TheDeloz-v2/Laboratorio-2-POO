@@ -9,10 +9,12 @@
  */
 
 public class Programa{
+    //-----PROPIEDADES-----
     private String nombre;
     private int espacios;
     private int ciclos;
 
+    //-----METODOS-----
     /** 
      * Constructor Programa
      */
@@ -23,26 +25,29 @@ public class Programa{
     }
 
     /** 
-     * @return String
+     * @return String Nombre del programa
      */
     public String getNombre(){
         return nombre;
     }
 
     /** 
-     * @return int
+     * @return int Espacio del programa
      */
     public int getEpacios(){
         return espacios;
     }
 
     /** 
-     * @return int
+     * @return int ciclos del programa
      */
     public int getCiclos(){
         return ciclos;
     }
 
+    /** 
+     * Reducir ciclos del programa
+     */
     public void reducirCiclos(){
         ciclos = ciclos - 1;
     }

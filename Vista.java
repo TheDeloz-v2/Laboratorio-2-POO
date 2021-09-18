@@ -14,6 +14,7 @@ import java.util.Scanner;
     //-----PROPIEDADES-----
     Scanner scan = new Scanner(System.in);
 
+    //-----METODOS-----
     /** 
      * Método que muestra el menú, además lee y devuelve la opción del usuario.
      * @return int op, seleccionada por el usuario (1-9)
@@ -23,12 +24,12 @@ import java.util.Scanner;
         System.out.println("Opcion 1: Inicializar una nueva RAM");
         System.out.println("Opcion 2: Ingresar programa");
         System.out.println("Opcion 3: Visualizar cantidad de memoria RAM");
-        System.out.println("Opcion 4: Visualizar espacio de programa");
+        System.out.println("Opcion 4: Visualizar espacio de un programa");
         System.out.println("Opcion 5: Visualizar programas en ejecucion");
         System.out.println("Opcion 6: Visualizar programas en cola de espera");
         System.out.println("Opcion 7: Visualizar estado de memoria RAM");
         System.out.println("Opcion 8: Realizar ciclo de reloj");
-        System.out.println("OPcion 9: Guardar y salir\n");
+        System.out.println("OPcion 9: Salir\n");
         int op = Integer.parseInt(scan.nextLine());
         return op;
     }
@@ -40,6 +41,10 @@ import java.util.Scanner;
         System.out.println("\nBienvenido a su Memoria RAM");
     }
 
+    /** 
+     * @return String Le pide al usuario el tipo de la RAM
+     * @throws Exception
+     */
     public String pedirtipoRAM() throws Exception{
         boolean validacion = false;
         String tipo = null;
@@ -63,6 +68,10 @@ import java.util.Scanner;
         return tipo;
     }
 
+    /** 
+     * @return int Le pide al usuario el tamano de la RAM
+     * @throws Exception
+     */
     public int pedirTamanoRAM() throws Exception{
         boolean validacion = false;
         int tamano = 0;
@@ -83,7 +92,11 @@ import java.util.Scanner;
         }
         return tamano;
     }
-
+ 
+    /** 
+     * @return String Le pide al usuario el nombre del programa
+     * @throws Exception
+     */
     public String pedirnombrePrograma() throws Exception{
         boolean validacion = false;
         String nombre = null;
@@ -105,6 +118,10 @@ import java.util.Scanner;
         return nombre;
     }
 
+    /** 
+     * @return int Le pide al usuario el espacio del programa
+     * @throws Exception
+     */
     public int pedirEspacioPrograma() throws Exception{
         boolean validacion = false;
         int espacio = 0;
@@ -126,6 +143,10 @@ import java.util.Scanner;
         return espacio;
     }
 
+    /** 
+     * @return int Le pide al usuario los ciclos del programa
+     * @throws Exception
+     */
     public int pedirCiclosPrograma() throws Exception{
         boolean validacion = false;
         int ciclos = 0;
@@ -147,6 +168,9 @@ import java.util.Scanner;
         return ciclos;
     }
 
+    /** 
+     * @param est Muestra el estado de un programa ingresado
+     */
     public void estadoPrograma(boolean est){
         if(est==true){
             System.out.println("El programa ha sido ingresado a la memoria.");
@@ -155,18 +179,30 @@ import java.util.Scanner;
         }
     }
 
+    /** 
+     * Aviso cuando un programa se ejecuta
+     */
     public void avisoProgramaEjecutado(){
         System.out.println("El programa ha sido ejecutado.");
     }
 
+    /** 
+     * Aviso cuando se avanza un ciclo de reloj
+     */
     public void avisoCicloReloj(){
         System.out.println("Se ha avanzado un ciclo de reloj.");
     }
 
+    /** 
+     * @param programasFinalizados
+     */
     public void mostrarProgramasFinalizados(String programasFinalizados){
         System.out.println("Los programas que han sido finalizados son: "+programasFinalizados);;
     }
 
+    /** 
+     * @param nombreP
+     */
     public void avisoNoPrograma(String nombreP){
         System.out.println("El programa ingresado *" + nombreP + "* no se encuentra en la memoria.");
     }
@@ -185,14 +221,23 @@ import java.util.Scanner;
         System.out.println("\n\nHa salido de su memoria, que tenga un feliz día. :)\n");
     }
 
+    /** 
+     * Aviso cuando ocurrio un error en la ejecucion del programa
+     */
     public void avisoError(){
         System.out.println("Ha ocurrido un error al ejecutar el programa.");
     }
 
+    /** 
+     * @param estadoRAM
+     */
     public void estadoRAM(String estadoRAM){
         System.out.println(estadoRAM);
     }
-
+    
+    /** 
+     * @return boolean Para saber si se ha elegido abrir el archivo de programas instalados
+     */
     public boolean leerArchivo(){
         boolean respuesta = false;
         System.out.println("\nExiste un archivo con programas ya instalados. ¿Desea leerlo? (Si/No)");
@@ -210,24 +255,48 @@ import java.util.Scanner;
         return respuesta;
     }
 
+    /** 
+     * Metodo que muestra toda la memoria RAM
+     * @param total
+     * @param disp
+     * @param nodisp
+     */
     public void mostrarRAM(int total, int disp, int nodisp){
         System.out.println("\n@ La cantidad de memoria total es: "+total);
         System.out.println("@ La cantidad de memoria disponible es: "+disp);
         System.out.println("@ La cantidad de memoria no disponible (uso) es: "+nodisp);
     }
 
+    /** 
+     * Metodo que muestra los programas en ejecucion
+     * @param programasE
+     */
     public void mostrarProgramasEjecucion(String programasE){
         System.out.println("\n@ Programas en ejecucion: "+programasE);
     }
 
+    /** 
+     * Metodo que muestra los programas en cola
+     * @param programasC
+     */
     public void mostrarProgramasCola(String programasC){
         System.out.println("\n@ Programas en cola: "+programasC);
     }
 
+    /** 
+     * Metodo que muestra los espacios que ocupa un programa
+     * @param nombrePrograma
+     * @param espacioPrograma
+     */
     public void mostrarEspacioPrograma(String nombrePrograma, int espacioPrograma){
         System.out.println("\nEl programa: *"+nombrePrograma+"* ocupa "+espacioPrograma+" espacios.");
     }
 
+    /** 
+     * Metodo que muestra el estado de la memoria RAM
+     * @param tamanoM
+     * @param estadoM
+     */
     public void mostrarEstadoRAM (int tamanoM, String estadoM){
         System.out.println("\nEl tamano total de la memoria: "+tamanoM+"\n");
         System.out.println(estadoM);
